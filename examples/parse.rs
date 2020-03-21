@@ -13,5 +13,10 @@ parse_model! {
     [matchers]
     m = r.sub == p.sub && r.obj == p.obj && r.act == p.act
 }
-
-fn main() {}
+fn main() {
+    let mut model = Model::new();
+    model.add_policy("me, data, read");
+    
+    println!("{:#?}", model);
+    println!("{}", model.enforce("me, data, read"));
+}
